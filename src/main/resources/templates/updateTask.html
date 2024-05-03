@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>HWork::..</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h2>Editar tarea</h2>
+		</div>
+		
+		<div class='container'>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<div class="card-body">
+					<form th:action="@{/Task/update/{id}(id=${task.id})}" th:object="${task}" method="POST">
+						<div class="form-group">
+							<label>Título</label>
+							<input class="form-control" required type="text" name="title" th:field="*{title}" placeholder="ingrese el título de la tarea">
+						</div>
+						
+						<div class="form-group">
+							<label>Descripción de la tarea</label>
+							<textarea class="form-control" name="content" th:field="*{content}" placeholder="ingrese una descripción de la tarea"></textarea>
+						</div>
+						<div class="row mx-auto">
+							<div class="box-footer col-lg-6">
+								<button type="submit" class="btn btn-primary">Editar tarea</button>
+							</div>
+							<div class="box-footer col-lg-6">
+								<a href="/Task" class="btn">Regresar</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
